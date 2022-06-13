@@ -1,0 +1,39 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex: 1 1 317.66px;
+}
+.project-row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.project-c {
+    max-width: calc(100% / 3);
+    flex: calc(100% / 3);
+    padding: 0 4px;
+}
+.col-md-4 {
+    max-height: calc(100% / 3);
+    margin-top: 10px;
+    align-items: center;
+    align-content: center;
+}
+.form-check > a {
+    cursor: pointer;
+}
+.project-filter {
+    color: grey;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+#show-all-projects {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .project-c {
+        flex: 100%;
+        max-width: 100%;
+    }
+}

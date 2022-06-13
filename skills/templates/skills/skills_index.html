@@ -1,0 +1,47 @@
+{% extends 'portfolio_webs/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'skills/css/skills_index.css' %}">
+<style>
+    .work-experience {
+        background-color: black;
+        border-color: white;
+        border-width: 2px;
+    }
+</style>
+<div class="row">
+    <div id="skillsandexperience" class="col-12 col-md-6">
+        <h1>Skills & Experience</h1>
+        <br>
+        {% for category in bycategories %}
+            <div style="text-align: left;">
+                <u><h4>{{ category }}</h4></u>
+                <ul class="list-inline">
+                    {% for item in category.string_aslist %}
+                    <li class="list-inline-item">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="width-100"></div>
+    <div id="rating-container" class="col-12 col-md-6">
+        {% for skill in skills %}
+            <span class="language">{{ skill.skill_name }}</span>
+            <div id="progress" class="progress" style="height: 5px;">
+                <div id="rating-progress-bar" class="progress-bar" role="progressbar"
+                    style="width: {{ skill.skill_level }}%;" aria-valuenow="{{ skill.skill_level }}" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+        {% for exp in experiences %}
+            <div class="work-experience">
+                <h4 class="title">&#11088; {{ exp.experience }}</h4>
+                <p class="contents">{{ exp.duration }}</p>
+                <p class="contents">{{ exp.description }}</p>
+            </div>     
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

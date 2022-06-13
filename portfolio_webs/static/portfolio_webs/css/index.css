@@ -1,0 +1,71 @@
+.text-container {
+    height: 150px;
+    width: 400px;
+    justify-self: center;
+    text-align: center;
+    word-wrap: break-word;
+    z-index: 3;
+}
+
+.about-btn {
+    margin-top: 20px;
+    /* border-color: #4205bb;
+    color: #4205bb; */
+}
+
+.btn-outline-primary:hover {
+    background-color: #4205bb;
+    border-color: #4205bb;
+}
+
+h1 {
+    font-size: 3em;
+    padding-bottom: 5px;
+}
+
+.name-styling {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px white;
+}
+
+.home_img {
+    width: 613px;
+    height: 500px;
+    position: absolute;
+    left: calc(50% - 306.5px);
+}
+
+/* Extra Small devices (less than 576px) */
+@media (max-width: 576px) {
+    .home-container {
+        margin-top: 50px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and less) */
+@media (min-width: 576px) {
+    .home-container {
+        margin-top: 150px;
+    }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .home-container {
+        margin-top: 200px;
+    }
+}
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    .home-container {
+        margin-top: 250px;
+    }
+}

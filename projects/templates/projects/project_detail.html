@@ -1,0 +1,37 @@
+{% extends 'portfolio_webs/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'projects/css/project_detail.css' %}">
+<h1 class="title">{{ project.title }}</h1>
+<div class="row">
+    <div class="col-md-6 iframe-container">
+      {% if project.videodemo %}
+      <div class="iframe-wrapper">
+        <iframe src="{{ project.videodemo }}" title="Video demonstration of project" width="700" height="500"></iframe>
+      </div>
+      {% endif %}
+      {% if not project.videodemo %}
+        <img class="image-con" src="{{ project.image.url }}">
+      {% endif %}
+    </div>
+    <div class="col-md-6 info-con">
+        <p>{{ project.description | safe }}</p>
+        <br>
+        <p>
+          <a href="{{ project.link }}">
+            View on GitHub
+            <img class="viewongit" src="data:image/png;base64,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"/>
+          </a>
+          {% if project.anotherlink %}
+          |
+            <a href="{{ project.anotherlink }}">
+              Demo on CodePen
+              <img style="width: 30px; height: 30px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAABmJLR0QA/wD/AP+gvaeTAAAD30lEQVRYhe2ZP0gyYRjA30uNqyAIMrNCkAYd0qWmcskhcAhMCMIhFOIEGxzlaHFwkJocdWxsiCjsHzVEQSgR6NARiRBUykmKpJl/zvuGg+O+9/X0676+rxv6jc89z3u/u3yf9703AH74QebgOI7j+Hdb/M7c3BxFUel02mq1frcLAACA/v7+UCjEMAzLsizLtlqtSCQyODj4nU42m+3x8ZFFeHl5WVpa+gahoaGhSCSCCgnZ2dlRq9X/z8npdNI03dmJg6Zpp9P5z4W0Wu3u7u6fCAk5PDzU6XT/RAjDMIIgSqUSdMtSqbSxsSGMrK+vFwoFKK1cLvv9/p6enq90mpycPD8/R19DLBbT6XRqtVoYVKvVYi/16urKaDR+gZBSqfT5fOVyGbpBoVAgCILLQbW4+PLyMvoTrFargUCgt7dXupPZbE4kEuhDQ1NMTAuIT9hkMjkzM/NpIRzHA4FArVaDhnt+frbb7VByBy2Otu2t0WiEw+GBgYE/dZqdnb27u4NG6dC+u2oBZDHgSafT8/Pz3Z2CwSBaTFGUxWIRK9FqtcLksbExsUyLxUJRFDQ4wzDBYLCLFvRjYhhma2urw9ZAr9dfX18LS25vbw0Gg1i+SqUiSbLZbApLEonE57RYlk2lUiaTqW3y6urq29sbi/D+/u7z+TAMQ0sMBsPNzQ2UL0WLZdlKpeLxeIRpIyMj+/v7aKaQk5OT8fFxYZXH46lUKmimRC2O4+Pj0dFRAIDD4cjn89DVeDwej8ehYD6fdzgcAIDh4eG9vT2xkT+nhc5qmqaPjo6gYKPRCIVCKpVKqVT6/X60rVxcXGSzWSj49PQkUWttba3trBZCURTUGM1mczKZ7FDC9RqCICRquVwuAIDVahU+GTR6236I47jY8+RyOZvNBgBwuVwdtLov6blc7vX1FY03m81MJlOtVtFLtVotk8k0Gg30UrFYzGazXW8KI3xbbrebIIi2c4fn7OwMmm4ajSYWi3Uo+fj48Pv9brdb4h8RXYJKpRLapovF4srKCldut9vRSXp/f18sFqHgw8ODRC2I09PTiYkJhUJBkmS9XoeuRqPRaDQKBev1OkmSCoVCo9EcHByIjSy9nXq9XmHXNplMqVRK7DYcFEVNT0/zJRiGeb3eL2un8Xi87RrX19cXDodbrVZbp+3t7baTVK/XX15e/q0WwzCbm5sdluqFhQWoVdI0vbi4KJYvcamWsLExGo3C5KmpKbFM6RsbIM9tIIccN808svvE4JHjBxmP7D5feeT4sc8ju6MRIbI7SOKR47Ebj+wOKXnkeKTLI7sDcB45/rvghx9QfgHVafQwfnOkPAAAAABJRU5ErkJggg==">
+            </a>
+          {% endif %}
+          | 
+          <a href="{% url 'projects:project_index' %}">&#x21a9; Back to Projects</a>
+        </p>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends 'portfolio_webs/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_webs/css/about.css' %}">
+<div class="row">
+    <div></div>
+    <div class="col-12 col-md-6">
+        <img class="me-image" src="{% static 'portfolio_webs/pportrait.jpg' %}" />
+    </div>
+    <div class="col-12 col-md-6 textalignment">
+        <h1><span><img class="profile-icon" src="{% static 'portfolio_webs/pportrait.jpg' %}" /></span>About Me</h1>
+        <div class="short-aboutme">
+            <small>Born</small>
+            <p>August 24<sup>th</sup>, 2003</p>
+            <small>Education</small>
+            <p>North Carolina State University Raleigh, NC *current*</p>
+            <small>Work</small>
+            <p>Mathnasium Tutoring</p>
+        </div>
+        <br>
+        <p>
+            My name is Maxim Shelepov and I'm an incoming computer science student at North Carolina State University.
+            I have a passion for coding in languages such as Python (it rocks!) and Java. I also work in web development
+            and have experience with Django and Flask frameworks.
+        </p>
+        <p>
+            Responsible, organized, problem solver, and independent thinker. Programming for 2+ years and have 3 years
+            of experience in advanced mathematics such as Calculus, Statistics, and Discrete Mathematics.
+            Work well in a team and able to assume role as leader. Currently work as a
+            mathematics tutor and teach mathematics to students from Algebra to Calculus.
+        </p>
+        <br>
+        <b>
+            <p>QUICK FACTS</p>
+        </b>
+        <ul>
+            <li>Huge fan of chess. United States Chess Federation Rated. My lichess handle is <i>MaximusXX111</i>.</li>
+            <li>Originally born in Moscow, Russia and now live in North Carolina.</li>
+            <li>Looking for full-stack development and web development internships and positions. Ready to start at any
+                moment.</li>
+        </ul>
+        </p>
+    </div>
+</div>
+{% endblock content %}

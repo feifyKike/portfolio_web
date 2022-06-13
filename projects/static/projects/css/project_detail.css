@@ -1,0 +1,50 @@
+.image-con {
+    object-fit: contain; 
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.info-con {
+    text-align: left;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: blue;
+    border-color: blue;
+}
+
+.viewongit {
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+}
+
+.reference-links {
+    display: inline-flex;
+}
+
+.iframe-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    
+}
+
+.iframe-container {
+    flex-direction: column;
+    justify-content: center;
+}
+
+iframe {
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 576px) { 
+    iframe {
+        height: 300px;
+    }
+}

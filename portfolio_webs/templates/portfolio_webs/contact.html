@@ -1,0 +1,31 @@
+{% extends 'portfolio_webs/base.html' %}
+
+{% block content %}
+<div class="container">
+ <h1>Contact Me</h1>
+ <form name="contact-form" action="{% url 'portfolio_webs:contact' %}" method='post' onsubmit="Validation()">
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="subject">Subject</label>
+      <input type="text" class="form-control" id="subject" name="subject" placeholder="Title" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="sender">Email address</label>
+      <input type="email" class="form-control" id="sender" name="sender" placeholder="Your Email" required>   
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea class="form-control" id="message" name="message" rows="3" placeholder="Message" required></textarea>   
+  </div>
+
+  <div class="form-group">
+    <input type="checkbox" class="form-check-input" id="cc_myself" name="cc_myself">
+    <label class="form-check-label" for="cc_myself">CC myself</label>
+  </div>
+  <button id="linked-button" type="submit" class="btn btn-warning">Send Email</button>
+ </form>
+</div>
+{% endblock content %}

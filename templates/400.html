@@ -1,0 +1,33 @@
+{% extends 'portfolio_webs/base.html' %}
+{% block content %}
+<style>
+    .error-container {
+        margin-top: 50px;
+    }
+    .colorerror {
+        font-size: 150px;
+        background-image: linear-gradient(blue, red);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+    }
+    .code-triangle {
+        width: 0px;
+        height: 0px;
+        border-left: 20px solid white;
+        border-top: 40px solid transparent;
+        border-bottom: 20px solid transparent;
+
+    }
+</style>
+<div class="error-container">
+    <div class="colorerror">400</div>
+    <h1>&#62; Bad Request</h1>
+    <p>The following page does not exist or may have been removed.</p>
+    <div>
+        <a style="margin: 50px;" href="{% url 'portfolio_webs:index' %}"><h4>Go Home?</h4></a>
+    </div>
+</div>
+{% endblock content %}

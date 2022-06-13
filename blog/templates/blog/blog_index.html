@@ -1,0 +1,42 @@
+{% extends 'portfolio_webs/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/blog_index.css' %}">
+<script type="text/javascript" src="{% static 'blog/js/blog_index.js' %}"></script>
+<h1 class="blog-page-title">Welcome to the Blog!</h1>
+<div style="margin: 20px;" class="row">
+	<div id="blog-filter" class="blog-filter col-12 col-md-3">
+		<!-- 1. Title -->
+		<h2>Browse Categories</h2>
+		<!-- 2. All of the categories listed with radio select options -->
+		<div class="form-check" id="form-check">
+			<a>#<span id="show-all-posts" onclick="ShowAll()">All</span></a>&nbsp;
+			{% for category in categories.all %}
+				<a>#<span id="{{ category }}" style="text-decoration: none;" onclick="Filter(this.innerHTML)">{{ category }}</span></a>&nbsp;
+			{% endfor %}
+		</div>
+	</div>
+	<div id="blogs" class="col-12 col-md-9 border-control">
+		<h3 id="content-message"></h3>
+		<div>
+			{% for post in posts %}
+				<div id="individual-post{{ post.id }}">
+					<h2><a href="{% url 'blog:blog_detail' post.id %}">{{ post.title }}</a></h2>
+					<small style="color: yellow;">
+						{{ post.created_on.date }} |&nbsp;
+						{% for category in post.categories.all %}
+						#<span id="category">
+							{{ category.name }}
+						</span>&nbsp;
+						{% endfor %}
+					</small>
+					<p>{{ post.snippet  }}..</p>
+					{% if post.pk != posts|length %}
+						<hr>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock content %}

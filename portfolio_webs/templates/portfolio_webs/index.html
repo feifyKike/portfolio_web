@@ -1,0 +1,16 @@
+<!-- Home page styling -->
+{% extends "portfolio_webs/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_webs/css/index.css' %}">
+<script type="text/javascript" src="{% static 'portfolio_webs/js/index.js' %}"></script>
+
+<div class="row justify-content-center home-container">
+    <div class="col-8 align-self-center">
+        <h1>&#62;Hello, my name is <span id="name-styling" class="name-styling" style="animation-name: blink;">Maxim Shelepov</span></h1>
+        <p>Programmer / NC State University Student / Math Tutor</p>
+        <a id="linked-button" href="{% url 'portfolio_webs:contact' %}"><button id="rm-button-style" type="button"
+                class="btn btn-outline-warning about-btn btn-lg">Contact Me</button></a>
+    </div>
+</div>
+{% endblock content %}

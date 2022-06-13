@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<!-- Required meta tags & Viewport Mobile tag -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	
+	<!-- Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono">
+
+	<!-- Body Styling -->
+	<link rel="stylesheet" type="text/css" href="{% static 'portfolio_webs/css/base.css' %}">
+</head>
+<body onload="Loading_Screen()">
+	<div id="loader-container">
+		<h3 id="counter-percent"></h3>
+		<div style="height: 10px;" class="progress progress-container">
+			<div id="progress-bar" class="progress-bar loading-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="{% static 'portfolio_webs/js/base.js' %}"></script>
+	<div style="display: none;" id="landing-page">
+		<div class="full-contain">
+			<nav class="navbar navbar-expand-md navbar-static-top">
+				<a class="navbar-brand" href="{% url 'portfolio_webs:index' %}">
+					<img src="{% static 'portfolio_webs/signature_final.png' %}" alt="" width="100px" height="70px"
+						loading="lazy" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span><img src="{% static 'portfolio_webs/icon8-menu.png' %}" width=50px height=40px /></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+					<ul id="nc" class="navbar-nav list-group list-group-horizontal">
+						<li class="nav-item active" id="nav-dis">
+							<a class="nav-link" href="{% url 'portfolio_webs:index' %}">
+								<div class="nav-holder">Home</div>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'skills:skills_index' %}">
+								<div class="nav-holder nav-holder-skills">Skills</div>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'projects:project_index' %}">
+								<div class="nav-holder nav-holder2">Work</div>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'blog:blog_index' %}">
+								<div class="nav-holder nav-holder3">Blog</div>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'portfolio_webs:about' %}">
+								<div class="nav-holder nav-holder4">About</div>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'portfolio_webs:contact' %}">
+								<div class="nav-holder nav-holder5">Contact</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!-- Page Specific Content -->
+			<div class="container-fluid">
+				{% block content %}{% endblock content %}
+			</div>
+			<!-- Website Footer -->
+			<div class="container footer">
+				<div class="row justify-content-center inner-footer">
+					<div class="col-md-10 align-self-end">
+						<span class="media-contact-container">
+							<!-- <a href="https://icons8.com/icon/85154/instagram">Instagram icon by Icons8</a> -->
+							<a href="https://www.instagram.com/maxim_shelepov/">
+								<img class="footer-icons" src="data:image/png;base64,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">
+							</a>
+							<!-- <a href="https://icons8.com/icon/118467/facebook">Facebook icon by Icons8</a> -->
+							<a href="https://www.facebook.com/maxim.shelepov.52/">
+								<img class="footer-icons" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/gAIDAAAABmJLR0QA/wD/AP+gvaeTAAAH5klEQVR4nO2cXWhSbQDHPR4/Fiq11VrNajVLrZUV3URQrJIuiqQPI4qpzKBuGl0ELbDAiKCRUFtRdBMEXZSLhBYFYZTopivBUW4282ONtotNtJguv8970fvW3ndHPef4nI/t9Xd59nie//Pz8eyc83ywWBUqVKhQocL/HYiuimEYlslkcrlcKpXKZDKpVCoSiQQCQXV1tUAgYLFYiUQiFoslEompqanh4WG/3+/3+30+n9/vz+VytGSmWlZjY6NSqVQqlXv37q2pqSFwhng87nK5rFar1Wr1eDz5fB54SJppaGhob28PBAIIUEZHR69fvy6VSuluHwi4XK5Wq+3r6wPraDa9vb0ajYbD4dDdYkLweDytVuv3+8nWNJNwOHzu3LkFCxbQ3XrMQBCk1+vHx8ep1DSTb9++6XQ6CKLtfxdWFAqFw+GgS9NM7Hb7pk2b6PZRAD6fbzKZMpkM3Zb+kE6nOzo6eDwe3W7+TUNDg9PppFsOOm63WyKR0G3oHw4dOhSNRul2UowfP34cP36cbk8sltFopFsFVi5fvkybJhiG7969S7cBfNy5c4fNZlNtis/nd3d30912Ijx58oTSSz6bzTabzXS3mjgWiwWGYYpkdXZ20t3ecrl37x4Vpq5cuUJ3S8Fw6dIlck2p1Wq62wiMfD5/5MgRskxJJJLv37/T3UaQxGKxNWvWYDeA9WmTz+f39vZu27aNkGfipFIpm83mcrkGBwcnJiai0WgsFovH40KhkMvlikQiDoezcOFCoVC4atUqsVis0+mWL1+O/fzv37/fuXNnOp0GGdpkMlH8tQ8MDJw6dUooFOLK+e7dO7wVdXR0gDSlUCiofEKORCIajYbY3SMBWel0euPGjWBMQRBE5VuXDx8+iMViwmkJyEIQxGazgXn/pdfrgRspRF9fn0gkKictMVkIgmg0mnJNVVVVjY2NgTVSiK9fv9bW1pYZmLCs0dHRko9BJa4Lra2t9fX1ZTYACwiCnD59enJykoK6UFm5cqVOpyP+eS6XGwqFgPaegjx79gxImwn3LARBgsEg8fEhrVYLUEdxtm7dSrssBEFaWloIVkzZm2K32w3EVPmyHA5HkZMX7HVSqXT79u2g2lCc7u5uXOVra2ulUinq+GB1dXU5SXbs2CGRSILBIL6PXb16FVTHKcmWLVswphKLxRaLJZvNkhfGaDTiMwVBUDgcJi/QTOLxOMab9fr6egruYwKBAL4b1M2bN5Od6TculwtjqhcvXlATqampCTUA+le6e/duHGrLIxQKYSmmUCgOHDhAdphf7NmzB/U4/bLGx8exFDt69CjZSX7T3NyMehxFFgzDu3btIjnPH2KxGJZiVEZqbm5GvYyiHJLJZIsWLSI/0t+kUiksxaicsVZTU4NaHbos8vP8AaOsuro6spPMBFUC/bKwUFVVRd1IH4vFwi5LLpeTHwYfFJtiYZfFoAk69LF27drZB1Fklfl4NT9A/ReHIgvvgMq8BPXtNoqsMt+Czw+wyqr0LFYBWaTPsu/q6ir+0mN6errkSaanpzGuXQmFQkDuqFFfPKDISiQSAKd7JZNJjA80RUAQBMtJli5dCurZY2pqavZBlJ9hIpEAUh/1ALydjsfjsw+iyEItNycAeDuNVdbExASoKikGYM9CHcFEkYX7dT1jANizAoHA7IPzShbAnoUqAUUWqlTmw+PxVq9eDepsWHvWx48fQVVJJevWrQO4ONPr9c4+iCLr8+fPNE7QIAzAC1YkEhkeHp59HEUWgiBOpxNUxZQB8IJlt9sRBJl9HL3fOhwOlUoFpGK5XH7s2LEiBTweT8mrJIfDOXz4cPEyhcavCFB8xsN/aWpqomY4E0GQtra2knkEAgFleRAE2bBhA2oM9HHDwcFBn8+Hw+48wuv1Dg0Nof6p4CSDp0+fkpaH0RSZ0lNQltlsJicM0ynSSwrK8nq9drudnDzMxWazFfoNsopPwO3q6iIhD6O5detWkb8Wk2WxWMLhMOg8zCUcDvf09BQpUExWLpe7efMm6EjMxWQylbXZFJfL/fLlC6k3NQy5zwoGg+UuGshkMqSv+GQGFy5cKLmQrvRkTrPZ3N/fDygSQ3E6nVhWLZSWhSBIa2trMpkEkYqJpFKpM2fOIGhPzv8B0zRhn8937dq1slMxFKPR+OnTJ5Bn5HA4brebjCsrvRf4/v5+7K8Msa4WzWazarU6EolgLD8niEajJ0+ezGazGMvjWFo7MjJy4sQJura9BE4ul2tpacE1OoNvHbLVajUYDDhTMZSLFy++evWK9Gpu3LgB8KpByzXr9u3bpGv6BQRB9+/fB5WbelkPHjygdGMoGIYfPXoEJDrFsh4+fEjDFloQBAHZlo1KWZ2dnTSY+k1bW1sul2O+rGw2e/bsWQqElGD//v2Tk5NMlhWJRChbUVaaurq6169fM1PW27dvV6xYQYEEHMAwbDAYfv78yRxZyWTSYDBQvzoDK42NjS9fvmSCrDdv3qxfv56CJpeLWq0eGhqiS5bf7y851s8s2Gz2wYMHPR4PlbK8Xq9Wq52ru8Kz2WyVSvX8+fMimwuULyuTyfT09KhUqjmwrTkWxGKxwWBwu935fB6grIGBgfb2dlz71s0lli1bptfrzWbzyMgIMVljY2OPHz+mbPslprB48eJ9+/Zh2eKex+OdP39eqVQuWbKEgmAVKlSoUKFChUL8BTF8K99oG7VUAAAAAElFTkSuQmCC">
+							</a>
+							 <!-- <a href="https://icons8.com/icon/98960/linkedin">LinkedIn icon by Icons8</a> -->
+							<a href="https://www.linkedin.com/in/maxim-shelepov-b1336520a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bg8Y269UFR8OJsLBHEF9dFA%3D%3D">
+								<img class="footer-icons" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAIAAAC3ytZVAAAABmJLR0QA/wD/AP+gvaeTAAAD3klEQVR4nO2bv0vrUBSAm9qaChWUtP6gWaS4CK5FpKAUXMTFQRdxEhHRNuAfIOIiSP4EncRCFycnQd2MBWnioIKDi6KgaG0SQku1eUNB3tUmvb7eJreP800l95z0nK/JvU2aejwAAAAAAAAAAAD/BYFAQBCEbDar67pJPbqun5+fp1IplmXJu+B5/vLy0u0e/wVFUXieJ+kiEAi0qIsqiqKQPEYEQXC7o0ZJJpPEdGSzWbfbaRRJknA6ZXCCNE0LBoONKXUZXdc7OzvrhmHpME2z4Xrch2HqN+t1oI4WAnQggA4E0IFAUsfr6+vGxkY8Hh8aGpqcnNzb2/v8/CS4f1rAWdgvLi56e3u/JSYSCU3TmvyVAhfndOTz+b6+vpq5c3NzDrSKg3M6tra2rHIZhrm5uXGg27rgdEpm7jg5ObEaMk3TZpQ2yOhQVdVmtFAoEHkXByCjIxqN2owODg4SeRdaqHtaHh4eWuVyHKeqavNnhvo4p8M0zdnZ2Z+JDMOk0+lm94mJozpKpZIgCD6f7yurp6cnk8k0u0l8cDolfIH/+Ph4enqaz+cHBgYSiURHRwdmogPgXODD/Q4EuIRD8NUPcZVSqfT09GQYBsdx4XDY623u50dMx/b2ds1zqqura2lp6e8tR0dHsiz/jAwGgysrK9XXqqru7u5mMplcLlcul6sbvV4vz/NjY2Pz8/MTExOkKv81OPN2W1tbzdxoNPotcnl5uWZkf39/NSCdTodCIfuS4vH43d0d8ZUFCyd1rK+vY1YVDoevrq7I6qBrKj04ONjc3MQMfnl5mZ6eNgyDYAEU6SgUCouLi79Kub293dnZIVgDRToMw3h7e/ttliiKHx8fpGqgSMe/cX9/n8vlSO2N0u8dHMeNjIyEQqHn52dJkt7f322Cj4+PY7GYY7U5tLJU8fv9oigWi8WveFVVFxYWbFJmZmZIrSxYOKlDFMWfO69UKqOjo1YpsViMlA665o5IJJJKpX5uZxhmbW3NKuvh4YFUAXTpmJqa8vv9NYfGx8etsjRNI1UAXTqGh4ethjiO6+7urjlULBZJFUCXDquGq1g9clMulyuVCpECWkmHzb01UgsHXTrsn++zmlYIQpcO1wEdCKADAXQggA4E0IEAOhBABwLoQAAdCKADAXQggA4EeL4DAY4OBNCBADoQQAcC6EDA0qHrerPraDb2T81/gaXj+vq6sWLcB7MFLB37+/uNFeM+JFtgWVZRFJyfhelEluX29nZiOjweD8/zLWpEluVIJELSRRWWZZPJpCRJ9PzbzwZN087OzlZXVwkfFwAAAAAAAAAAAO7xB9BYO3K2WPNlAAAAAElFTkSuQmCC">
+							</a>
+							<!-- <a href="https://icons8.com/icon/12599/github">GitHub icon by Icons8</a> -->
+							<a href="https://github.com/feifyKike">
+								<img class="footer-icons" src="data:image/png;base64,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">
+							</a>
+						</span>
+						<ul style="margin-bottom: 0px;" class="list-inline">
+							<li class="list-inline-item"> &#128205; Raleigh, NC</li>&#183;
+							<li class="list-inline-item">&#128231; mimaishel@icloud.com</li>&#183;
+							<li class="list-inline-item">&#128241;(919)413-3338</li>
+						</ul>
+						<p>Site by <a href="{% url 'portfolio_webs:about' %}">Maxim Shelepov</a>. Icons by <a href="https://icons8.com">Icons8</a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Javascript animation tags -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+</body>
+</html>

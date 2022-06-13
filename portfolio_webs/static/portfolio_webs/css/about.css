@@ -1,0 +1,50 @@
+.row {
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.textalignment {
+    text-align: left;
+}
+
+.me-image {
+    max-width: 80%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+#profile-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.profile-icon {
+    display: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-width: 5px;
+    border-color: white;
+    margin: 10px;
+}
+
+.short-aboutme small {
+    color: grey;
+}
+
+@media (min-width: 2000px) {
+    .me-image {
+        max-width: 50%;
+    }
+}
+@media (max-width: 768px) {
+    .m {
+        width: 100%;
+    }
+    .me-image {
+        display: none;
+    }
+    .profile-icon {
+        display: initial;
+    }
+}

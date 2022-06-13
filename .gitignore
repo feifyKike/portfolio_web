@@ -1,0 +1,10 @@
+ll_pers/
+.vscode/
+.env
+db.sqlite3
+DSI.db
+media/
+staticfiles/
+__pycache__/
+migrations/
+.DS_Store

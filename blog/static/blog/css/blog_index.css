@@ -1,0 +1,36 @@
+.blog-page-title {
+    margin-bottom: 30px;
+}
+.blog-filter {
+    justify-content: left;
+    text-align: left;
+    align-self: flex-start;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
+    margin-bottom: 15px;
+}
+hr {
+    background-color: white;
+}
+.form-check {
+    padding-left: 0px;
+    margin-left: 0px;
+    font-size: 1.2em;
+    color: grey;
+}
+.form-check > a {
+    cursor: pointer;
+}
+#show-all-posts {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .blog-filter {
+        display: initial;
+        position: initial;
+    }
+    .blog-filter > h2 {
+        display: none;
+    }
+}

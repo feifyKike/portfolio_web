@@ -1,0 +1,25 @@
+{% extends 'portfolio_webs/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/blog_detail.css' %}">
+<link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css">
+<script src="https://highlightjs.org/static/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<div class="col-md-8 offset-md-2 border-control">
+    <div id="pill"><a href="{% url 'blog:blog_index' %}"><span style="font-size: 1.5em;">&#8592;</span> Back to Blog</a></div>
+    <div class="blog-post">
+        <h1>{{ post.title }}</h1>
+        <small>
+            {{ post.created_on.date }} | &nbsp;
+            Categories:&nbsp;
+            {% for category in post.categories.all %}
+                {{ category.name }}
+            {% endfor %}
+        </small>
+        <p></p>
+        <div class="blog-contents">{{ post.body | safe }}</div>
+    </div>
+    <small>Updated: {{ post.last_modified.date }}</small>
+    <div id="pill"><a href="{% url 'blog:blog_index' %}"><span style="font-size: 1.5em;">&#8592;</span> Back to Blog</a></div>
+</div>
+{% endblock content %}

@@ -1,0 +1,46 @@
+.row {
+    margin: 20px;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.skills-description {
+    text-align: left;
+}
+
+#rating-container {
+    margin-bottom: 20px;
+}
+
+.work-experience {
+    background-color: #323232;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.title {
+    margin: 10px;
+}
+
+.contents {
+    font-size: .8em;
+    margin: 10px;
+    color: white;
+    text-align: left;
+}
+#rating-progress-bar {
+    background-image: linear-gradient(30deg, red, blue);
+}
+
+@media (max-width: 768px) {
+    .width-100 {
+        width: 100%;
+    }
+    
+}

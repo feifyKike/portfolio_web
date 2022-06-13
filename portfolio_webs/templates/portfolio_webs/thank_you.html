@@ -1,0 +1,14 @@
+{% extends 'portfolio_webs/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_webs/css/thank_you.css' %}">
+<div class="polite-container">
+    <span><img class="paper-airplane" src="{% static 'portfolio_webs/paper_airplane.png' %}"/></span>
+    <h1 class="thankyou">Thank you!</h1>
+    <h3>Hope to get back to you soon. Have a great day.</h3>
+    <div class="offer-buttons">
+        <a id="linked-button" style="margin-left: 20px;" href="{% url 'portfolio_webs:index' %}"><button type="button" class="btn btn-lg btn-warning option-buttons">Return Home</button></a> 
+        <a id="linked-button" style="margin-left: 20px;" href="{% url 'blog:blog_index' %}"><button type="button" class="btn btn-lg btn-warning option-buttons">Visit the Blog</button></a> 
+    </div>
+</div>
+{% endblock content %}
