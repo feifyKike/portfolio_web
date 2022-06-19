@@ -27,15 +27,17 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
             sender = form.cleaned_data['sender']
+            message = "Contact Info: " + sender + "\n"
+            message += form.cleaned_data['message']
+            from_email = config('EMAIL_FROM')
             cc_myself = form.cleaned_data['cc_myself']
 
             recipients = [config('EMAIL_RECIPIENT')]
             if cc_myself:
                 recipients.append(sender)
             try:
-                send_mail(subject, message, sender, recipients, fail_silently=True)
+                send_mail(subject, message, from_email, recipients, fail_silently=True)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return HttpResponseRedirect(reverse('portfolio_webs:thank_you'))
