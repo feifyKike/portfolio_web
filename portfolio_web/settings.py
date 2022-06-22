@@ -35,7 +35,7 @@ EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 
 
 # Application definition
@@ -138,6 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 CSRF_COOKIE_SECURE = config("CCS", default=True, cast=bool)
 SESSION_COOKIE_SECURE = config("SCS", default=True, cast=bool)
+CSRF_TRUSTED_ORIGINS = [config("CTO", default=None, cast=bool)]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
