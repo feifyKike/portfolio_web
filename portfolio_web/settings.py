@@ -138,7 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 CSRF_COOKIE_SECURE = config("CCS", default=True, cast=bool)
 SESSION_COOKIE_SECURE = config("SCS", default=True, cast=bool)
-CSRF_TRUSTED_ORIGINS = [config("CTO", default=None, cast=bool)]
+CSRF_TRUSTED_ORIGINS = [config("CTO")]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
