@@ -43,6 +43,16 @@ iframe {
     margin-bottom: 20px;
 }
 
+.progress-bar {
+    color: black;
+}
+
+.progress {
+    margin: auto; 
+    max-width: 700px;
+    margin-bottom: 15px;
+}
+
 @media (max-width: 576px) { 
     iframe {
         height: 300px;
