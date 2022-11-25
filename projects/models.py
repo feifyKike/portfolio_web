@@ -18,7 +18,6 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     summary = models.TextField(max_length=300, default="Follow the link above to the blog post.")
     description = RichTextField(blank=True, null=True)
-    image = models.ImageField(upload_to='images/', blank=True)
     technology = models.ManyToManyField('Technology', related_name='projects')
     link = models.URLField(max_length=500)
     anotherlink = models.URLField(max_length=500, default="", blank=True)
