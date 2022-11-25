@@ -3,7 +3,7 @@ from decouple import config
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['site--maximshelepov--6tkhqqjrq9c5.code.run', 'maximshelepov.com', '127.0.0.1']
 
 DATABASES = {
     'default': {

@@ -5,7 +5,7 @@ import sys
 from decouple import config
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', config('DJANGO_SETTINGS_MODULE'))
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', config('DJANGO_SETTINGS_MODULE', default='portfolio_web.settings.prod'))
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
