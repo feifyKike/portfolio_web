@@ -1,6 +1,4 @@
 function Loading_Screen() {
-    var i = 0;
-    var elem = document.getElementById("myBar");
     var width = 1;
     var id = setInterval(function() {
         if (width >= 100) {
@@ -10,8 +8,8 @@ function Loading_Screen() {
             document.getElementById('progress-bar').style.width = width + "%";
             document.getElementById('counter-percent').innerHTML = width + "%";
         }
-    }, 4);
-    setTimeout(showPage, 1000);
+    }, 5);
+    setTimeout(showPage, 1400);
 };
 function showPage() {
     // Display Items

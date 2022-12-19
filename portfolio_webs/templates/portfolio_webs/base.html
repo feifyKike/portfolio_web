@@ -15,6 +15,12 @@
 
 	<!-- Body Styling -->
 	<link rel="stylesheet" type="text/css" href="{% static 'portfolio_webs/css/base.css' %}">
+
+	<title>Maxim Shelepov | Personal Portfolio</title>
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="{% static 'portfolio_webs/favicon.png' %}">
+	<link rel="apple-touch-icon" type="image/png" href="{% static 'portfolio_webs/apple_touch_icon.png' %}">
 </head>
 <body onload="Loading_Screen()">
 	<div id="loader-container">
@@ -28,8 +34,7 @@
 		<div class="full-contain">
 			<nav class="navbar navbar-expand-md navbar-static-top">
 				<a class="navbar-brand" href="{% url 'portfolio_webs:index' %}">
-					<img src="{% static 'portfolio_webs/signature_final.png' %}" alt="" width="100px" height="70px"
-						loading="lazy" />
+					<img src="{% static 'portfolio_webs/signature_final.png' %}" width="100px" height="70px"/>
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
