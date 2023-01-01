@@ -28,8 +28,8 @@
     margin: 10px;
 }
 
-.short-aboutme small {
-    color: grey;
+strong, em {
+    color: red;
 }
 
 @media (min-width: 2000px) {
