@@ -28,10 +28,6 @@
     margin: 10px;
 }
 
-strong, em {
-    color: red;
-}
-
 @media (min-width: 2000px) {
     .me-image {
         max-width: 50%;
