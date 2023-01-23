@@ -1,6 +1,6 @@
 from django.contrib import admin
-from portfolio_webs.models import Profile
+from portfolio_webs.models import About
 
 
 # Register your models here.
-admin.site.register(Profile)
+admin.site.register(About)

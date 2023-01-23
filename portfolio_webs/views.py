@@ -5,7 +5,7 @@ from django.urls import reverse
 from decouple import config
 
 from . forms import ContactForm
-from portfolio_webs.models import Profile
+from portfolio_webs.models import About
 
 # Create your views here.
 def index(request):
@@ -19,8 +19,8 @@ def index(request):
 
 def about(request):
     """Creating a contact page"""
-    profile = Profile.objects.latest('created_on')
-    context = {'profile': profile}
+    about = About.objects.latest('created_on')
+    context = {'about': about}
     return render(request, 'portfolio_webs/about.html', context)
 
 def contact(request):
