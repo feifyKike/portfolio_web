@@ -12,11 +12,6 @@ def index(request):
     """Creating a homepage view"""
     return render(request, 'portfolio_webs/index.html')
 
-""" def skills(request):
-    projects = Project.objects.all()
-    context = {'projects': projects}
-    return render(request, 'portfolio_webs/skills.html') """
-
 def about(request):
     """Creating a contact page"""
     about = About.objects.latest('created_on')
